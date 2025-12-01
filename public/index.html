@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets Online | Premium Bahnreisen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Tickets Online</h1>
+            <p>Buche dein Ticket einfach online</p>
+        </header>
+
+        <main>
+            <section class="search-card">
+                <h2>Verbindung suchen</h2>
+                <form id="search-form">
+                    <div class="form-group">
+                        <label for="from-station">Von</label>
+                        <select id="from-station" required>
+                            <option value="" disabled selected>Startbahnhof wählen</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="to-station">Nach</label>
+                        <select id="to-station" required>
+                            <option value="" disabled selected>Zielbahnhof wählen</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Züge suchen</button>
+                </form>
+            </section>
+
+            <section id="results-section" class="hidden">
+                <h3>Verfügbare Verbindungen</h3>
+                <div id="results-list">
+                    <!-- Results will be injected here -->
+                </div>
+            </section>
+
+            <section id="bookings-section" class="search-card">
+                <h2>Meine Tickets</h2>
+                <div id="bookings-list">
+                    <!-- Bookings will be injected here -->
+                    <p style="text-align:center; color: var(--text-muted);">Keine Tickets gefunden.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Buchung abschließen</h2>
+            <p id="modal-connection-details"></p>
+            <form id="booking-form">
+                <input type="hidden" id="booking-connection-id">
+                <div class="form-group">
+                    <label for="passenger-name">Name des Fahrgastes</label>
+                    <input type="text" id="passenger-name" placeholder="Max Mustermann" required>
+                </div>
+                <button type="submit" class="btn-primary">Kostenpflichtig buchen</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content" style="text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 10px;">🎉</div>
+            <h2>Buchung erfolgreich!</h2>
+            <p id="success-message" style="margin-bottom: 20px; color: var(--text-muted);"></p>
+            <button id="close-success-btn" class="btn-primary">Verstanden</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
